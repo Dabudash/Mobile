@@ -1,5 +1,5 @@
 /**
- * My To Do List App
+ * My To-Do List App
  *
  * 
  */
@@ -11,15 +11,18 @@ import ToDoForm from './ToDoForm';
 
 
 export default function App(){
-    const [tasks] = useState([
+    const [tasks, setTasks] = useState([
         'Do laundry',
         'Go to gym',
         'Walk dog'
     ]);
+    const addTask = (task) => {
+        setTasks([...tasks, task]);
+    };
     return (
         <SafeAreaView>
             <ToDoList tasks={tasks}/>
-            <ToDoForm/>
+            <ToDoForm addTask={addTask}/>
             
         </SafeAreaView>
 
